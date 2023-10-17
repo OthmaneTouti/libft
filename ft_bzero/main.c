@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <strings.h>
+#include <stdlib.h>
+#include "libft.h"
+
+int	main(void)
+{
+	//TEST 1
+	char *str = (char *) malloc(17);
+	char *str_check = (char *) malloc(17);
+	t_size len = 17;
+	int test_fail = 0;
+
+	ft_bzero(str, len);
+	bzero(str_check, len);
+
+	int i = 0;
+	while (len)
+	{
+		if (str[i] != str_check[i])
+		{
+			printf("\033[0;31mTest 1 Failed!\n\33[0m");
+			test_fail = 1;
+			break ;
+		}
+		i++;
+		len--;
+	}
+	if (!test_fail)
+		printf("\033[0;32mTest 1 passed!\n\033[0m");
+
+	//TEST 2
+	char *str2 = (char *) malloc(17);
+	char *str_check2 = (char *) malloc(17);
+	t_size len2 = 5;
+	test_fail = 0;
+
+	ft_bzero(str2, len2);
+	bzero(str_check2, len2);
+
+	i = 0;
+	while (len)
+	{
+		if (str2[i] != str_check2[i])
+		{
+			printf("\033[0;31mTest 2 Failed!\n\33[0m");
+			test_fail = 1;
+			break ;
+		}
+		i++;
+		len--;
+	}
+	if (!test_fail)
+		printf("\033[0;32mTest 2 passed!\n\033[0m");
+	return (0);
+
+}
