@@ -6,14 +6,13 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:48:16 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/17 14:23:01 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/17 14:33:41 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	*ft_memset(void *ptr, int value, size_t len)
+void	*ft_memset(void *ptr, int value, t_size len)
 {
 	while (len > 0)
 	{
