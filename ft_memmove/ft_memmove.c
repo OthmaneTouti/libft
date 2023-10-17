@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 17:16:56 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/17 17:59:54 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/17 19:23:46 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 void	*ft_memmove(void *dst, const void *src, t_size len)
 {
-	char	buffer[ft_strlen(dst)];
-	int		i;
+	char		*d;
+	const char	*s;
 
-	i = 0;
-	while (buffer[i])
+	if (dst == src)
+		return (dst);
+	d = (char *)dst;
+	s = (const char *)src;
+	if (d < s || d >= (s + len))
 	{
-		buffer[i] = *(char *)dst;
-		i++;
-		dst++;
+		while (len--)
+			*d++ = *s++;
 	}
-	dst = dst - ft_strlen(buffer);
-	i = 0;
-	while (len)
+	else
 	{
-		buffer[i] = *(char *)src;
-		i++;
-		src++;
-		len--;
+		d += len - 1;
+		s += len - 1;
+		while (len--)
+			*d-- = *s--;
 	}
 	return (dst);
 }

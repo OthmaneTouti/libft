@@ -5,24 +5,20 @@
 
 int	main(void)
 {
-	char	*src = "Start Stop";
-	char	*dst = (char *) malloc(sizeof(src)/sizeof(char));
-	char	*dst_check = (char *) malloc(sizeof(src)/sizeof(char));
-	char	*original_dst;
-	char	*original_dst_check;
-	//t_size	len = ft_strlen(str) + sizeof(char);
+	//TEST 1
+	char	str[] = "Start Stop";
+	char	str_check[] = "Start Stop";
 	int		test_fail = 0;
 
-	original_dst = ft_memmove(str, str + 6, 4 * sizeof(char));
-	original_dst_check = memmove(str_check, str_check + 6, 4 * sizeof(char));
+	ft_memmove(str, str + 6, 4 * sizeof(char));
+	memmove(str_check, str_check + 6, 4 * sizeof(char));
 	int i = 0;
 	while (str[i])
 	{
 		if (str[i] != str_check[i])
 		{
 			printf("\033[0;31mTest 1 Failed!\n\33[0m");
-			printf("Destination: %s\nOriginal Destination: %s\n", str, original_dst);
-			printf("Destination Check: %s\nOriginal Destination Check: %s\n", str_check, original_dst_check);
+			printf("Destination: %s\nDestination Check: %s\n", str, str_check);
 			test_fail = 1;
 			break ;
 		}
@@ -31,7 +27,31 @@ int	main(void)
 	if (!test_fail)
 	{
 		printf("\033[0;32mTest 1 passed!\n\033[0m");
-		printf("Destination: %s\nOriginal Destination: %s\n", str, original_dst);
-		printf("Destination Check: %s\nOriginal Destination Check: %s\n", str_check, original_dst_check);
+		printf("Destination: %s\nDestination Check: %s\n", str, str_check);
+	}
+
+	//TEST 2
+	char	str2[] = "Start Stop";
+	char	str_check2[] = "Start Stop";
+	test_fail = 0;
+
+	ft_memmove(str2 + 2, str2, 6 * sizeof(char));
+	memmove(str_check2 + 2, str_check2, 6 * sizeof(char));
+	i = 0;
+	while (str2[i])
+	{
+		if (str2[i] != str_check2[i])
+		{
+			printf("\033[0;31mTest 2 Failed!\n\33[0m");
+			printf("Destination: %s\nDestination Check: %s\n", str2, str_check2);
+			test_fail = 1;
+			break ;
+		}
+		i++;
+	}
+	if (!test_fail)
+	{
+		printf("\033[0;32mTest 2 passed!\n\033[0m");
+		printf("Destination: %s\nDestination Check: %s\n", str2, str_check2);
 	}
 }
