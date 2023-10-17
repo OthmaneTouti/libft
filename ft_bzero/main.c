@@ -28,6 +28,8 @@ int	main(void)
 	}
 	if (!test_fail)
 		printf("\033[0;32mTest 1 passed!\n\033[0m");
+	free(str);
+	free(str_check);
 
 	//TEST 2
 	char *str2 = (char *) malloc(17);
@@ -52,6 +54,7 @@ int	main(void)
 	}
 	if (!test_fail)
 		printf("\033[0;32mTest 2 passed!\n\033[0m");
+	free(str2);
+	free(str_check2);
 	return (0);
-
 }
