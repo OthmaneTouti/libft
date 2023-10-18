@@ -6,13 +6,13 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:26:54 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/17 15:00:02 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/18 13:23:37 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *ptr, t_size len)
+void	ft_bzero(void *ptr, size_t len)
 {
 	while (len > 0)
 	{

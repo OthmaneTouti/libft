@@ -6,14 +6,14 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:44:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/18 13:23:37 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/18 13:22:55 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-typedef unsigned int	size_t;
+# include <unistd.h>
 
 int		ft_isalnum(char c);
 int		ft_isalpha(char c);
@@ -25,5 +25,6 @@ void	*ft_memset(void *ptr, int value, size_t len);
 void	ft_bzero(void *ptr, size_t size);
 void	*ft_memcpy(void *dst, const void *src, size_t len);
 void	*ft_memmove(void *dst, const void *src, size_t len);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 #endif

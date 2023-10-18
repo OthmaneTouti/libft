@@ -8,7 +8,7 @@ int	main(void)
 	//TEST 1
 	char *str = (char *) malloc(17);
 	char *str_check = (char *) malloc(17);
-	t_size len = 17;
+	size_t len = 17;
 	int test_fail = 0;
 
 	ft_bzero(str, len);
@@ -34,7 +34,7 @@ int	main(void)
 	//TEST 2
 	char *str2 = (char *) malloc(17);
 	char *str_check2 = (char *) malloc(17);
-	t_size len2 = 5;
+	size_t len2 = 5;
 	test_fail = 0;
 
 	ft_bzero(str2, len2);
