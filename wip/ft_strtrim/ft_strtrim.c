@@ -6,28 +6,67 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:01:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/21 18:26:27 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/22 13:15:41 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
+
+static size_t	count_start(const char *s1, const char *set)
+{
+	size_t	count;
+
+	count = 0;
+	while (*s1)
+	{
+		if (ft_strchr(set, *s1))
+		{
+			s1++;
+			count++;
+		}
+		else
+			return (count);
+	}
+	return (count);
+}
+
+static size_t	count_end(const char *s1, const char *set)
+{
+	size_t	count;
+
+	count = 0;
+	s1--;
+	while (*s1)
+	{
+		if (ft_strchr(set, *s1))
+		{
+			s1--;
+			count++;
+		}
+		else
+			return (count);
+	}
+	return (count);
+}
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	size_t	len_set;
+	char	*trimmed_s1;
+	size_t	count_first;
+	size_t	count_last;
 	size_t	len_s1;
-	char	*trimmed_str;
 
-	len_set = ft_strlen((char *)set);
 	len_s1 = ft_strlen((char *)s1);
-	trimmed_str = (char *) malloc(len_s1 - 2 * len_set);
-	if (!trimmed_str)
+	count_first = count_start(s1, set);
+	count_last = count_end(s1 + len_s1, set);
+	if (count_first == len_s1 || count_last == len_s1)
 		return (0);
-	if (!ft_strncmp(s1, set, len_set)
-		&& !ft_strncmp((s1 + len_s1 - len_set), set, len_set))
-		ft_strlcpy(trimmed_str, s1 + len_set, len_s1 - (2 * len_set) + 1);
-	else
-		return ((char *)s1);
-	return (trimmed_str);
+	trimmed_s1 = (char *) malloc(len_s1 - count_first - count_last);
+	if (!trimmed_s1)
+		return (0);
+	ft_strlcpy(trimmed_s1, s1 + count_first,
+		len_s1 - count_first - count_last + 1);
+	return (trimmed_s1);
 }
