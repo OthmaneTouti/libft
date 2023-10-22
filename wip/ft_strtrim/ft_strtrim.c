@@ -6,11 +6,10 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:01:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/22 13:15:41 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/22 13:23:46 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 #include <stdio.h>
 
