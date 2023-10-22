@@ -6,12 +6,12 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:01:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/22 13:23:46 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/22 13:30:01 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 static size_t	count_start(const char *s1, const char *set)
 {
