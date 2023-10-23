@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:17:24 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/22 21:06:07 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/22 21:18:12 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 static int	check_sign(int n)
 {
 	int	is_negative;
-	
+
 	is_negative = 0;
 	if (n < 0)
 		is_negative = 1;
@@ -29,7 +29,7 @@ static size_t	count_digits(int n)
 	size_t	len;
 
 	len = 0;
-	while(n)
+	while (n)
 	{
 		len++;
 		n /= 10;
@@ -40,8 +40,8 @@ static size_t	count_digits(int n)
 static void	write_str(int n, char *num_str, size_t len)
 {
 	size_t	i;
-	int	divisor;
-	
+	int		divisor;
+
 	if (*num_str == '-')
 		num_str++;
 	while (len)
@@ -76,7 +76,7 @@ char	*ft_itoa(int n)
 		n = -n;
 	len = count_digits(n);
 	num_str = (char *) malloc((len + 1 + is_negative));
-	if(!num_str)
+	if (!num_str)
 		return (0);
 	if (is_negative)
 		*num_str = '-';
