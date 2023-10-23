@@ -79,8 +79,8 @@ int	main(void)
 	//TEST 6
 	c = '\0';
 
-	result = ft_isascii(c);
-	result_check = isascii(c);
+	result = ft_isascii(256);
+	result_check = isascii(256);
 
 	if (result == result_check)
 		printf("\033[0;32mTest 6 passed!\n\033[0m");
