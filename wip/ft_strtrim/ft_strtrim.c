@@ -6,66 +6,52 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:01:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/23 18:40:49 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 19:51:03 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static size_t	count_start(const char *s1, const char *set)
 {
 	size_t	count;
 
 	count = 0;
-	while (*s1)
+	while (*s1 && ft_strchr(set, *s1))
 	{
-		if (ft_strchr(set, *s1))
-		{
-			s1++;
-			count++;
-		}
-		else
-			return (count);
+		s1++;
+		count++;
 	}
 	return (count);
 }
 
-static size_t	count_end(const char *s1, const char *set)
+static size_t	count_end(const char *s1, const char *set, size_t len)
 {
 	size_t	count;
 
 	count = 0;
-	s1--;
-	while (*s1)
+	while (len > 0 && ft_strchr(set, s1[len - 1]))
 	{
-		if (ft_strchr(set, *s1))
-		{
-			s1--;
-			count++;
-		}
-		else
-			return (count);
+		len--;
+		count++;
 	}
 	return (count);
 }
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	char	*trimmed_s1;
-	size_t	count_first;
-	size_t	count_last;
-	size_t	len_s1;
+	size_t	start;
+	size_t	end;
+	size_t	len;
+	char	*trimmed;
 
-	len_s1 = ft_strlen(s1);
-	count_first = count_start(s1, set);
-	count_last = count_end(s1 + len_s1, set);
-	if (count_first == len_s1 || count_last == len_s1)
+	if (!s1 || !set)
 		return (0);
-	trimmed_s1 = (char *) malloc(len_s1 - count_first - count_last);
-	if (!trimmed_s1)
-		return (0);
-	ft_strlcpy(trimmed_s1, s1 + count_first,
-		len_s1 - count_first - count_last + 1);
-	return (trimmed_s1);
+	len = ft_strlen(s1);
+	start = count_start(s1, set);
+	end = count_end(s1, set, len);
+	if (start >= len)
+		return (ft_strdup(""));
+	trimmed = ft_substr(s1, start, len - start - end);
+	return (trimmed);
 }
