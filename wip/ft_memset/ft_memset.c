@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:48:16 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/18 13:23:37 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 16:23:26 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void	*ft_memset(void *ptr, int value, size_t len)
 {
-	while (len > 0)
+	char	*ptr_temp;
+
+	ptr_temp = (char *) ptr;
+	while (len)
 	{
-		*(unsigned char *)ptr = (unsigned char)value;
-		ptr++;
+		*ptr_temp = value;
+		ptr_temp++;
 		len--;
 	}
 	return (ptr);
