@@ -18,8 +18,8 @@ int main(void)
 	printf("Result: %s\nResult Check: %s\n", result, result_check);
 
 	//TEST 2
-	char 		*result2 = ft_memchr(s, c, 5);
-	char		*result_check2 = memchr(s, c, 5);
+	char 		*result2 = ft_memchr("bonjourno", 'n', 2);
+	char		*result_check2 = memchr("bonjourno", 'n', 2);
 
 	if (result2 == result_check2)
 		printf("\033[0;32mTest 2 Passed!\n\033[0m");
