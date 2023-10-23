@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:59:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/18 14:59:03 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 18:36:48 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	unsigned int	i;
+	size_t			src_len;
 
 	i = 0;
+	src_len = ft_strlen((char *)src);
+	if (!dstsize)
+		return (src_len);
 	while (src[i] && i < dstsize - 1)
 	{
 		dst[i] = src[i];
 		i++;
 	}
 	dst[i] = '\0';
-	return (ft_strlen((char *)src));
+	return (src_len);
 }
