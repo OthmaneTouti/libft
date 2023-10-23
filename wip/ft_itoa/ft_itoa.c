@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:17:24 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/22 21:18:12 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 19:29:44 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-static int	check_sign(int n)
+static int	check_sign(long n)
 {
 	int	is_negative;
 
@@ -24,11 +24,11 @@ static int	check_sign(int n)
 	return (is_negative);
 }
 
-static size_t	count_digits(int n)
+static size_t	count_digits(long n)
 {
 	size_t	len;
 
-	len = 0;
+	len = (n == 0);
 	while (n)
 	{
 		len++;
@@ -37,28 +37,20 @@ static size_t	count_digits(int n)
 	return (len);
 }
 
-static void	write_str(int n, char *num_str, size_t len)
+static void	write_str(long n, char *num_str, size_t len, int is_negative)
 {
-	size_t	i;
-	int		divisor;
-
-	if (*num_str == '-')
-		num_str++;
-	while (len)
+	if (is_negative)
 	{
-		i = 1;
-		divisor = 1;
-		while (i < len)
-		{
-			divisor *= 10;
-			i++;
-		}
-		*num_str = '0' + (n / divisor);
+		*num_str = '-';
 		num_str++;
-		n %= divisor;
-		len --;
+		n = -n;
 	}
-	*num_str = '\0';
+	num_str[len] = '\0';
+	while (len--)
+	{
+		num_str[len] = (n % 10) + '0';
+		n /= 10;
+	}
 }
 
 char	*ft_itoa(int n)
@@ -66,20 +58,14 @@ char	*ft_itoa(int n)
 	size_t	len;
 	char	*num_str;
 	int		is_negative;
+	long	ln;
 
-	if (n == -2147483648)
-		return ("-2147483648");
-	if (n == 0)
-		return ("0");
-	is_negative = check_sign(n);
-	if (is_negative)
-		n = -n;
-	len = count_digits(n);
+	ln = (long)n;
+	is_negative = check_sign(ln);
+	len = count_digits(ln);
 	num_str = (char *) malloc((len + 1 + is_negative));
 	if (!num_str)
 		return (0);
-	if (is_negative)
-		*num_str = '-';
-	write_str(n, num_str, len);
+	write_str(ln, num_str, len, is_negative);
 	return (num_str);
 }
