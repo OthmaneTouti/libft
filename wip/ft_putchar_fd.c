@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 11:57:05 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/23 16:26:46 by ottouti          ###   ########.fr       */
+/*   Created: 2023/10/23 11:48:48 by ottouti           #+#    #+#             */
+/*   Updated: 2023/10/23 12:19:07 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
+	if (fd == -1 || !c)
+		return ;
 	else
-		return (0);
+		write(fd, &c, 1);
 }

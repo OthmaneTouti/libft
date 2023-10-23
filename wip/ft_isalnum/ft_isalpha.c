@@ -6,11 +6,11 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:16:01 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/16 11:39:20 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 16:27:55 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char c)
+int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);

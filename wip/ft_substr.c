@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 11:57:05 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/23 16:26:46 by ottouti          ###   ########.fr       */
+/*   Created: 2023/10/20 11:47:50 by ottouti           #+#    #+#             */
+/*   Updated: 2023/10/20 12:09:26 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int	ft_isalnum(int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	else
+	char	*sub_s;
+
+	sub_s = (char *) malloc(len * sizeof(char));
+	if (!sub_s)
 		return (0);
+	ft_strlcpy(sub_s, (s + start), len + 1);
+	return (sub_s);
 }

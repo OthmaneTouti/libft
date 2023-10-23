@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 11:57:05 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/23 16:26:46 by ottouti          ###   ########.fr       */
+/*   Created: 2023/10/20 12:16:22 by ottouti           #+#    #+#             */
+/*   Updated: 2023/10/20 21:26:04 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	else
+	char	*s_join;
+	size_t	len1;
+	size_t	len2;
+
+	len1 = ft_strlen((char *)s1);
+	len2 = ft_strlen((char *)s2);
+	s_join = (char *) malloc(len1 + len2 + 1);
+	if (!s_join)
 		return (0);
+	ft_memmove((void *)s_join, (const void *)s1, len1);
+	ft_memmove((void *)(s_join + len1), (const void *)s2, len2 + 1);
+	return (s_join);
 }

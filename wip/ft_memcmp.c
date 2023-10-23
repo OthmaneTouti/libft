@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 11:57:05 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/23 16:26:46 by ottouti          ###   ########.fr       */
+/*   Created: 2023/10/19 13:30:03 by ottouti           #+#    #+#             */
+/*   Updated: 2023/10/19 13:49:48 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	else
+	unsigned char	*s1_temp;
+	unsigned char	*s2_temp;
+
+	s1_temp = (unsigned char *)s1;
+	s2_temp = (unsigned char *)s2;
+	if (n <= 0)
 		return (0);
+	while (n-- && (*s1_temp || *s2_temp))
+	{
+		if (*s1_temp != *s2_temp)
+			return (*s1_temp - *s2_temp);
+		else
+		{
+			s1_temp++;
+			s2_temp++;
+		}
+	}
+	return (0);
 }
