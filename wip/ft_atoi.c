@@ -6,16 +6,16 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:36:41 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/23 17:02:33 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 17:05:03 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int ft_isspace(char c)
+static int	ft_isspace(char c)
 {
-	if (c == '\t' || c == '\n' ||
-	    c == '\v' || c == '\f' || c == '\r' || c == ' ')
+	if (c == '\t' || c == '\n'
+		|| c == '\v' || c == '\f' || c == '\r' || c == ' ')
 		return (1);
 	else
 		return (0);
@@ -31,7 +31,7 @@ int	ft_atoi(const char *str)
 	while (ft_isspace(*str) || *str == '+' || *str == '-'
 		|| (*str >= '0' && *str <= '9'))
 	{
-		if ((*str == '+' || *str =='-')
+		if ((*str == '+' || *str == '-')
 			&& !(*(str + 1) >= '0' && *(str + 1) <= '9'))
 			return (num);
 		else if (*str == '-' && sign == 1)
@@ -45,7 +45,6 @@ int	ft_atoi(const char *str)
 			}
 			return (num * sign);
 		}
-		
 		str++;
 	}
 	return (num * sign);
