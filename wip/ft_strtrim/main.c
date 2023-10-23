@@ -11,7 +11,7 @@ int	main(void)
 
 	char *trimmed_str = ft_strtrim(s1, set);
 
-	if(!ft_strncmp(trimmed_str, s1_check, ft_strlen((char *)s1_check)))
+	if(!ft_strncmp(trimmed_str, s1_check, ft_strlen(s1_check)))
 		printf("\033[0;32mTest 1 passed!\n\033[0m");
 	else
 		printf("\033[0;31mTest 1 Failed!\n\33[0m");
@@ -24,7 +24,7 @@ int	main(void)
 
 	char *trimmed_str2 = ft_strtrim(s2, set);
 
-	if(!ft_strncmp(trimmed_str2, s2_check, ft_strlen((char *)s2_check)))
+	if(!ft_strncmp(trimmed_str2, s2_check, ft_strlen(s2_check)))
 		printf("\033[0;32mTest 2 passed!\n\033[0m");
 	else
 		printf("\033[0;31mTest 2 Failed!\n\33[0m");
@@ -37,7 +37,7 @@ int	main(void)
 
 	char *trimmed_str3 = ft_strtrim(s3, set);
 
-	if(!ft_strncmp(trimmed_str3, s3_check, ft_strlen((char *)s3_check)))
+	if(!ft_strncmp(trimmed_str3, s3_check, ft_strlen(s3_check)))
 		printf("\033[0;32mTest 3 passed!\n\033[0m");
 	else
 		printf("\033[0;31mTest 3 Failed!\n\33[0m");

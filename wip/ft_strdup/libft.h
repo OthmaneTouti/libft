@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:44:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/19 19:05:26 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 18:41:48 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_isalpha(char c);
 int		ft_isdigit(int dig);
 int		ft_isascii(char c);
 int		ft_isprint(char c);
-int		ft_strlen(char *str);
+int		ft_strlen(const char *str);
 int		ft_toupper(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);

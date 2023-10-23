@@ -6,13 +6,13 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 19:28:43 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/17 14:21:57 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 18:41:48 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	len;
 

@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:01:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/22 13:29:54 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 18:40:49 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	size_t	count_last;
 	size_t	len_s1;
 
-	len_s1 = ft_strlen((char *)s1);
+	len_s1 = ft_strlen(s1);
 	count_first = count_start(s1, set);
 	count_last = count_end(s1 + len_s1, set);
 	if (count_first == len_s1 || count_last == len_s1)

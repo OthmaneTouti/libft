@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:59:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/19 19:14:45 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 18:40:49 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		i++;
 	}
 	dst[i] = '\0';
-	return (ft_strlen((char *)src));
+	return (ft_strlen(src));
 }
