@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 13:30:03 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/23 19:36:25 by ottouti          ###   ########.fr       */
+/*   Created: 2023/10/18 11:38:10 by ottouti           #+#    #+#             */
+/*   Updated: 2023/10/18 13:23:37 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t len)
 {
-	unsigned char	*s1_temp;
-	unsigned char	*s2_temp;
+	char		*d;
+	const char	*s;
 
-	s1_temp = (unsigned char *)s1;
-	s2_temp = (unsigned char *)s2;
-	if (n <= 0)
-		return (0);
-	while (n--)
-	{
-		if (*s1_temp != *s2_temp)
-			return (*s1_temp - *s2_temp);
-		else
-		{
-			s1_temp++;
-			s2_temp++;
-		}
-	}
-	return (0);
+	if (dst == src)
+		return (dst);
+	d = (char *)dst;
+	s = (const char *)src;
+	while (len--)
+		*d++ = *s++;
+	return (dst);
 }
