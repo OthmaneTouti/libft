@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:48:48 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/23 12:19:07 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 16:40:26 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	if (fd == -1 || !c)
+	if (fd == -1)
 		return ;
 	else
 		write(fd, &c, 1);
