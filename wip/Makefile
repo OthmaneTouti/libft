@@ -6,7 +6,7 @@
 #    By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 18:24:09 by daelee            #+#    #+#              #
-#    Updated: 2023/10/23 13:14:46 by ottouti          ###   ########.fr        #
+#    Updated: 2023/10/24 12:40:42 by ottouti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,23 +52,23 @@ FILES = ft_memset \
 		ft_putnbr_fd \
 		ft_striteri 
 
-# FILES_B = 	ft_lstnew \
-# 	  		ft_lstadd_front \
-# 	  		ft_lstsize \
-# 	  		ft_lstlast \
-# 	  		ft_lstadd_back \
-# 	  		ft_lstdelone \
-# 	  		ft_lstclear \
-# 	  		ft_lstiter \
-# 	  		ft_lstmap
+FILES_B = 	ft_lstnew \
+	  		# ft_lstadd_front \
+	  		# ft_lstsize \
+	  		# ft_lstlast \
+	  		# ft_lstadd_back \
+	  		# ft_lstdelone \
+	  		# ft_lstclear \
+	  		# ft_lstiter \
+	  		# ft_lstmap
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-# SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
+SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
 
 OBJS_DIR = ./
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
-# OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
+OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
 
 
 .c.o: $(SRCS)
@@ -77,17 +77,17 @@ OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
-# bonus: $(OBJS_B)
-#	 $(AR) $(NAME) $^
+bonus: $(OBJS_B)
+	$(AR) $(NAME) $^
 
 all: $(NAME)
 
 clean:
-	 $(RM) $(OBJS)
+	 $(RM) $(OBJS) $(OBJS_B)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: clean all
 
-.PHONY: all clean fclean re
+.PHONY: bonus all clean fclean re
