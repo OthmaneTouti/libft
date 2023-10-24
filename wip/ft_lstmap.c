@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:57:09 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/24 16:29:09 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/24 16:49:12 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*current;
 	t_list	*new_lst;
 	t_list	*new_node;
-	
+
 	if (!lst || !f || !del)
 		return (NULL);
 	current = lst;
