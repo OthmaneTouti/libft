@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:57:09 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/24 16:21:41 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/24 16:29:09 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,26 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*current;
-	t_list	*new;
-	t_list	*current_new;
-
+	t_list	*new_lst;
+	t_list	*new_node;
+	
 	if (!lst || !f || !del)
 		return (NULL);
 	current = lst;
-	new = ft_lstnew(current -> content);
-	current_new = new;
-	while (current -> next != NULL)
+	new_lst = ft_lstnew(f(current->content));
+	if (!new_lst)
+		return (NULL);
+	current = current -> next;
+	while (current)
 	{
-		current -> content = f(current -> content);
-		current_new -> content = current -> content;
-		current = current -> next;
-		current_new -> next = ft_lstnew(current -> content);
-		current_new = current_new -> next;
+		new_node = ft_lstnew(f(current -> content));
+		if (!new_node)
+		{
+			ft_lstclear(&new_lst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_lst, new_node);
+		current = current->next;
 	}
-	current -> content = f(current -> content);
-	current_new -> content = current -> content;
-	return (new);
+	return (new_lst);
 }

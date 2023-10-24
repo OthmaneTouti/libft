@@ -8,9 +8,10 @@ void	del(void *content)
 	free(content);
 }
 
-void	f(void *content)
+void	*f(void *content)
 {
 	*(int *)content += 1; 
+	return (content);
 }
 
 int main(void)
@@ -30,7 +31,7 @@ int main(void)
     node2->next = node3;
 	node3->next = node4;
 	
-    t_list *new = (node1, &f, &del);
+    t_list *new = ft_lstmap(node1, &f, &del);
 	t_list *current_new = new;
 
 	while(current_new != NULL)
