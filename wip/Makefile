@@ -6,7 +6,7 @@
 #    By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 18:24:09 by daelee            #+#    #+#              #
-#    Updated: 2023/10/24 13:51:40 by ottouti          ###   ########.fr        #
+#    Updated: 2023/10/24 14:07:54 by ottouti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ FILES_B = 	ft_lstnew \
 	  		ft_lstadd_front \
 	  		ft_lstsize \
 	  		ft_lstlast \
-	  		# ft_lstadd_back \
+	  		 ft_lstadd_back \
 	  		# ft_lstdelone \
 	  		# ft_lstclear \
 	  		# ft_lstiter \
