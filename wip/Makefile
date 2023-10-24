@@ -6,7 +6,7 @@
 #    By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/09 18:24:09 by daelee            #+#    #+#              #
-#    Updated: 2023/10/24 15:00:22 by ottouti          ###   ########.fr        #
+#    Updated: 2023/10/24 15:27:46 by ottouti          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ FILES_B = 	ft_lstnew \
 	  		ft_lstadd_back \
 	  		ft_lstdelone \
 	  		ft_lstclear \
-	  		# ft_lstiter \
+	  		ft_lstiter \
 	  		# ft_lstmap
 
 SRCS_DIR = ./

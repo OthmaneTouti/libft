@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:01:52 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/24 15:21:46 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/24 15:52:45 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	if (!lst || !*lst || !del)
 		return ;
 	current = *lst;
-	while(current != NULL)
+	while (current != NULL)
 	{
 		next_node = current -> next;
 		del(current -> content);
