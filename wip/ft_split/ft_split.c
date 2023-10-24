@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:23:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/22 14:50:12 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 23:36:25 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include "libft.h"
 #include <stdio.h>
 
-static size_t	count_words(char *s, char c)
+static size_t	count_splits(const char *s, char c)
 {
 	int		in_word;
 	size_t	count;
 
-	in_word = 1;
+	in_word = 0;
 	count = 1;
 	while (*s)
 	{
@@ -28,14 +28,27 @@ static size_t	count_words(char *s, char c)
 			in_word = 0;
 			count++;
 		}
-		else
+		else if (*s != c)
 			in_word = 1;
 		s++;
 	}
 	return (count);
 }
 
-static size_t	word_len(char *s, char c)
+void	free_split(char **split_s, int last)
+{
+	int	i;
+
+	i = 0;
+	while (i < last)
+	{
+		free(split_s[i]);
+		i++;
+	}
+	free(split_s);
+}
+
+static size_t	word_len(const char *s, char c)
 {
 	size_t	len;
 
@@ -48,31 +61,42 @@ static size_t	word_len(char *s, char c)
 	return (len);
 }
 
-char	**ft_strsplit(const char *s, char c)
+static char	**write_strings(const char *s, char c, char **split_s)
 {
-	char	*buffer;
-	char	**split_s;
-	size_t	len;
 	int		i;
+	size_t	len;
 
-	buffer = ft_strtrim(s, &c);
-	if (!s || !buffer)
-		return (0);
-	split_s = (char **) malloc((count_words(buffer, c) + 1) * sizeof(char *));
 	i = 0;
-	while (*buffer)
+	while (*s)
 	{
-		if (*buffer == c)
+		if (*s == c)
 		{
-			buffer++;
+			s++;
 			continue ;
 		}
-		len = word_len(buffer, c);
+		len = word_len(s, c);
 		split_s[i] = (char *) malloc((len + 1) * sizeof(char));
-		ft_strlcpy(split_s[i], (const char *)buffer, len + 1);
+		if (!split_s[i])
+		{
+			free_split(split_s, i);
+			return (0);
+		}
+		ft_strlcpy(split_s[i], (const char *)s, len + 1);
 		i++;
-		buffer += len;
+		s += len;
 	}
 	split_s[i] = 0;
 	return (split_s);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**split_s;
+
+	if (!s)
+		return (0);
+	split_s = (char **) malloc((count_splits(s, c) + 1) * sizeof(char *));
+	if (!split_s)
+		return (0);
+	return (write_strings(s, c, split_s));
 }

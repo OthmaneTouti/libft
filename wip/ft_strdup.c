@@ -6,14 +6,14 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 11:17:25 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/23 17:10:43 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 23:17:40 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char	*ft_strdup(const char *src)
 {
 	size_t	len;
 	char	*ptr;

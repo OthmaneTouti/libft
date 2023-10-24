@@ -8,7 +8,7 @@ int	main(void)
 	const char	*s = "  42 is the answer.  ";
 	char		c = ' ';
 	printf("Unsplit string: %s\n", s);
-	char **split_s = ft_strsplit(s, c);
+	char **split_s = ft_split(s, c);
 	printf("Split string:\n");
 	while (*split_s)
 	{
@@ -18,9 +18,9 @@ int	main(void)
 	}
 
 	//TEST 2
-	const char	*s2 = "Ha  Ku  Na  Ma   Ta Ta   ";
+	const char	*s2 = "   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ";
 	printf("Unsplit string: %s\n", s2);
-	char **split_s2 = ft_strsplit(s2, c);
+	char **split_s2 = ft_split(s2, c);
 	printf("Split string:\n");
 	while (*split_s2)
 	{
@@ -31,13 +31,13 @@ int	main(void)
 
 	//TEST 3
 	const char *s3 = "";
-	char **split_3 = ft_strsplit(s3, c);
+	char **split_3 = ft_split(s3, c);
 	if (!split_3)
 		printf("Empty string returns null!\n");
 
 	//TEST 4
 	const char *s4 = "    ";
-	char **split_4 = ft_strsplit(s4, c);
+	char **split_4 = ft_split(s4, c);
 	if (!split_4)
 		printf("String only with sep returns null!\n");
 }

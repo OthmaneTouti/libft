@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-char	*ft_strdup(char *src);
+char	*ft_strdup(const char*src);
 
 int	main(void)
 {
