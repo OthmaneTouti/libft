@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:23:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/22 14:50:12 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/23 20:02:55 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static size_t	word_len(char *s, char c)
 	return (len);
 }
 
-char	**ft_strsplit(const char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	char	*buffer;
 	char	**split_s;
