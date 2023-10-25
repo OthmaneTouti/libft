@@ -6,36 +6,41 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:57:09 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/24 16:49:12 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/25 15:03:30 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
+#include "libft.h"
+
+static t_list	*cleanup_on_error(t_list *new_lst, void (*del)(void *))
+{
+	ft_lstclear(&new_lst, del);
+	return (NULL);
+}
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*current;
 	t_list	*new_lst;
 	t_list	*new_node;
+	void	*new_content;
 
-	if (!lst || !f || !del)
-		return (NULL);
-	current = lst;
-	new_lst = ft_lstnew(f(current->content));
-	if (!new_lst)
-		return (NULL);
-	current = current -> next;
-	while (current)
+	new_lst = NULL;
+	while (lst)
 	{
-		new_node = ft_lstnew(f(current -> content));
+		new_content = f(lst->content);
+		if (!new_content)
+			return (cleanup_on_error(new_lst, del));
+		new_node = ft_lstnew(new_content);
 		if (!new_node)
 		{
-			ft_lstclear(&new_lst, del);
-			return (NULL);
+			del(new_content);
+			return (cleanup_on_error(new_lst, del));
 		}
 		ft_lstadd_back(&new_lst, new_node);
-		current = current->next;
+		lst = lst->next;
 	}
 	return (new_lst);
 }
