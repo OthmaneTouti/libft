@@ -6,7 +6,7 @@
 /*   By: ottouti <ottouti@student.42quebec.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:23:27 by ottouti           #+#    #+#             */
-/*   Updated: 2023/10/23 23:36:25 by ottouti          ###   ########.fr       */
+/*   Updated: 2023/10/25 14:41:44 by ottouti          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ static size_t	count_splits(const char *s, char c)
 	size_t	count;
 
 	in_word = 0;
-	count = 1;
+	count = 0;
 	while (*s)
 	{
-		if (*s == c && in_word == 1)
-		{
+		if (*s == c)
 			in_word = 0;
+		else if (!in_word)
+		{
+			in_word = 1;
 			count++;
 		}
-		else if (*s != c)
-			in_word = 1;
 		s++;
 	}
 	return (count);
